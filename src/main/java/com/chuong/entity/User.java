@@ -1,11 +1,15 @@
 package com.chuong.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
 @Entity
 @Table(name = "\"user\"")
+@Getter
+@Setter
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,27 +34,5 @@ public class User implements Serializable {
         this.tech = tech;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTech() {
-        return tech;
-    }
-
-    public void setTech(String tech) {
-        this.tech = tech;
-    }
 }
