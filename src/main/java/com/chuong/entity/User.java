@@ -1,7 +1,9 @@
 package com.chuong.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -10,6 +12,8 @@ import java.io.Serializable;
 @Table(name = "\"user\"")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,19 +24,9 @@ public class User implements Serializable {
 
     private String tech;
 
-    public User(){}
-
-    public User(int id, String name, String tech) {
-        this.id = id;
-        this.name = name;
-        this.tech = tech;
-    }
-
     public User(String name, String tech) {
 
         this.name = name;
         this.tech = tech;
     }
-
-
 }
