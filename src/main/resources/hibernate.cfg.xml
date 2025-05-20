@@ -4,15 +4,32 @@
         <property name="hibernate.connection.driver_class">
             org.postgresql.Driver
         </property>
+
         <property name="hibernate.connection.url">
             jdbc:postgresql://localhost:54321/db_hibernate_1
         </property>
         <property name="hibernate.connection.username">myuser</property>
         <property name="hibernate.connection.password">mypassword</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+
+
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+
         <property name="hibernate.show_sql">true</property>
+
         <property name="hibernate.cache.use_second_level_cache">false</property>
         <property name="hibernate.cache.use_query_cache">false</property>
+
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+
+
+        <mapping class="com.chuong.entity.User"/>
+        <mapping class="com.chuong.entity.Customer"/>
+        <mapping class="com.chuong.entity.Order"/>
+        <mapping class="com.chuong.entity.Item"/>
+
 
     </session-factory>
 </hibernate-configuration>

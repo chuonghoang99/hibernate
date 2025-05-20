@@ -25,7 +25,6 @@ public class User implements Serializable {
     private String tech;
 
     public User(String name, String tech) {
-
         this.name = name;
         this.tech = tech;
     }
