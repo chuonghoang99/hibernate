@@ -14,7 +14,7 @@ public class App {
     SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
     // Gọi các phương thức kiểm thử
-    testGetMethod(sessionFactory);
+    //testGetMethod(sessionFactory);
     testLoadMethod(sessionFactory);
     testFindMethod(sessionFactory);
   }
@@ -42,16 +42,19 @@ public class App {
 
   // Phương thức kiểm thử load()
   public static void testLoadMethod(SessionFactory sessionFactory) {
+
     System.out.println("\n=== Sử dụng load() ===");
     try (Session session = sessionFactory.openSession()) {
       session.beginTransaction();
 
       // Truy xuất User với ID = 1
-      User userLoad = session.load(User.class, 1);
+      User userLoad = session.load(User.class, 2);
       // Lúc này chưa truy vấn, chỉ tạo proxy
       System.out.println("Proxy được tạo cho User ID = 1");
       // Truy vấn xảy ra khi truy cập thuộc tính
-      System.out.println("User (load): " + userLoad.getName() + ", Tech: " + userLoad.getTech());
+
+      var name = userLoad.getName();
+      System.out.println("User (load): " + name + ", Tech: " + userLoad.getTech());
 
       session.getTransaction().commit();
     } catch (Exception e) {

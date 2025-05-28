@@ -42,9 +42,15 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void createUser(User user) {
+
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
+
             session.persist(user);
+
+
+
+
             session.getTransaction().commit();
             log.info("User được tạo thành công: {}", user.getName());
         } catch (Exception e) {
